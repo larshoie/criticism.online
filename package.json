@@ -1,0 +1,25 @@
+{
+  "name": "criticism.online",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "rm -rf dist && parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larshoie/criticism.online.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larshoie/criticism.online/issues"
+  },
+  "homepage": "https://github.com/larshoie/criticism.online",
+  "devDependencies": {
+    "autoprefixer": "^9.7.2",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^1.4.1"
+  }
+}
