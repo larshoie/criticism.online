@@ -20,6 +20,10 @@
   "devDependencies": {
     "autoprefixer": "^9.7.2",
     "parcel-bundler": "^1.12.4",
-    "postcss-modules": "^1.4.1"
+    "postcss-modules": "^1.4.1",
+    "stylus": "^0.54.7"
+  },
+  "dependencies": {
+    "stylus-loader": "^3.0.2"
   }
 }

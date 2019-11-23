@@ -1,3 +1,7 @@
+@import './fonts.styl';
+@import './text-styles.styl';
+@import './utils.styl';
+
 .english,
 .panel-left,
 .panel-right {
@@ -31,23 +35,13 @@ a {
   text-transform: uppercase;
 }
 
-@font-face {
-  font-family: Wremena-Light;
-  src: url(../assets/fonts/Wremena_Light.woff) format('woff');
-}
-
-@font-face {
-  font-family: IDEOLOGY;
-  src: url(../assets/fonts/ideology.woff) format('woff');
-}
 
 body,
 html {
-  font-size: 2vw;
   font-size: 1.7vw;
   line-height: 1.3;
   font-family: Wremena-Light;
-  font-feature-settings: 'liga', 'dlig';
+  font-feature-settings: "liga", "dlig";
   font-kerning: normal;
   overflow-x: hidden;
 }
@@ -113,6 +107,7 @@ article.panel-container:first-of-type .panel {
   width: 74vw;
   padding: 1.5vw 3vw 10vw;
 }
+
 
 footer .panel {
   padding: 1.5vw 3vw;
@@ -269,7 +264,7 @@ a:hover {
 
 .english-nav:after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
   width: 80vw;
@@ -283,7 +278,7 @@ a:hover {
 .russian-nav:after {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0, #fff 50%);
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   width: 80vw;
   height: 100%;
@@ -317,7 +312,7 @@ a:hover {
 
 .russian-nav:before {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 80vw;
   width: 80vw;
@@ -432,3 +427,39 @@ img {
     margin-left: 0;
   }
 }
+
+.quote-section
+  width: 160vw
+  display: flex
+  &-item
+    padding: pxToRem(30) pxToRem(70) pxToRem(65) pxToRem(60)
+    color: #fff
+    position: relative
+    p
+      position: relative
+    a
+      color: inherit
+    a:hover
+      border-color: inherit
+      border-width: pxToRem(2)
+    &-cover
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background-image: url("../assets/images/quote-bg-example.jpg")
+      background-size: cover
+      background-position: bottom
+      background-repeat: no-repeat
+  &-item--english
+    background-color: #000
+  &-item--russian
+    background-color: #fff
+    p
+      mix-blend-mode: difference
+  &-item--russian &-item-cover
+    mix-blend-mode: exclusion
+
+.quote-example .quote-section-item::before
+  background-image: url("../assets/images/quote-bg-example.jpg")
