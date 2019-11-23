@@ -434,6 +434,7 @@ img {
   &-item
     padding: pxToRem(30) pxToRem(70) pxToRem(65) pxToRem(60)
     color: #fff
+    background-color: #000
     position: relative
     p
       position: relative
@@ -452,13 +453,21 @@ img {
       background-size: cover
       background-position: bottom
       background-repeat: no-repeat
-  &-item--english
-    background-color: #000
-  &-item--russian
+
+.english-active
+  .quote-section-item--russian
     background-color: #fff
     p
       mix-blend-mode: difference
-  &-item--russian &-item-cover
+  .quote-section-item--russian .quote-section-item-cover
+    mix-blend-mode: exclusion
+
+.russian-active
+  .quote-section-item--english
+    background-color: #fff
+    p
+      mix-blend-mode: difference
+  .quote-section-item--english .quote-section-item-cover
     mix-blend-mode: exclusion
 
 .quote-example .quote-section-item::before
