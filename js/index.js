@@ -1,3 +1,6 @@
+import $ from "jquery";
+import flowtype from "flowtype";
+
 // $(".panel-left").resizable({
 //   handleSelector: ".splitter",
 //   resizeHeight: false,
@@ -5,7 +8,7 @@
 // });
 
 function test() {
-  $(".inner").flowtype({
+  flowtype(document.querySelector(".inner"), {
     minFont: 16,
     maxFont: 400
   });
@@ -389,7 +392,7 @@ screen.resize();
 // create LavaLamps
 lava0 = new LavaLamp(screen.width, screen.height, 0, colorSHIT, colorSHIT);
 
-//run();
+run();
 
 window.addEventListener("resize", function() {
   lava0 = new LavaLamp(screen.width, screen.height, 0, colorSHIT, colorSHIT);
