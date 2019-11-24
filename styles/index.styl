@@ -1,6 +1,4 @@
-@import './fonts.styl';
-@import './text-styles.styl';
-@import './utils.styl';
+@import './common.styl'
 
 .english,
 .panel-left,
@@ -64,10 +62,13 @@ sup {
 }
 
 .date {
-  text-stroke: 2px #000;
+  text-stroke: 1px #000;
   text-fill-color: transparent;
+  -webkit-text-stroke: 1px #000;
+  -webkit-text-fill-color: transparent;
   display: block;
   font-variant-numeric: oldstyle-nums;
+  letter-spacing: pxToRem(-2);
 }
 
 .nav-container,
@@ -413,6 +414,8 @@ img {
   .date {
     text-stroke: 0.5px #000;
     text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px #000;
+    -webkit-text-fill-color: transparent;
     display: block;
   }
   h1 {
@@ -472,3 +475,24 @@ img {
 
 .quote-example .quote-section-item::before
   background-image: url("../assets/images/quote-bg-example.jpg")
+
+.article-h1
+  max-width: pxToRem(750)
+  margin: 0 auto
+
+.article-read-full
+  display: block
+  width: 100%
+  border: pxToRem(2) solid !important
+  text-align: center
+  padding: pxToRem(13) 0 pxToRem(14)
+  margin-top: pxToRem(30)
+  color: black;
+
+.english-active
+  .article-read-full--russian
+    background: white;
+
+.russian-active
+  .article-read-full--english
+    background: white;
