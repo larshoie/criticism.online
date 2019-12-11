@@ -1,12 +1,74 @@
 @import './utils.styl';
 
-.text-quote
+text-quote()
   font-family: IDEOLOGY, sans-serif
   font-size: pxToRem(48)
   line-height: (52 / 48)
 
-.text-big
+text-big()
   font-family: IDEOLOGY, sans-serif
   font-size: pxToRem(30)
   line-height: (33 / 30)
   text-transform: uppercase
+
+text-body()
+  font-family: Wremena-Light
+  font-size: pxToRem(30)
+  line-height: (33 / 30)
+
+text-highlight()
+  font-family: IDEOLOGY-RegularBold, sans-serif
+  font-size: pxToRem(25)
+  line-height: (33 / 25)
+
+text-header()
+  font-family: IDEOLOGY, sans-serif
+  font-size: pxToRem(100)
+  line-height: (97 / 100)
+
+text-subheader()
+  font-family: IDEOLOGY, sans-serif
+  font-size: pxToRem(58)
+  line-height: (60 / 58)
+
+text-site-header()
+  font-family: IDEOLOGY, sans-serif
+  font-size: pxToRem(24)
+  text-transform: uppercase
+
+text-section-header()
+  font-family: IDEOLOGY-Expanded, sans-serif
+  font-size: pxToRem(24)
+  line-height: 1
+
+text-caption()
+  font-family: Wremena-Light
+  font-size: pxToRem(20)
+  line-height: 1
+
+.text-quote
+  text-quote()
+
+.text-big
+  text-big()
+
+.text-body
+  text-body()
+
+.text-highlight
+  text-highlight()
+
+.text-header
+  text-header()
+
+.text-subheader
+  text-subheader()
+
+.text-section-header
+  text-section-header()
+
+.text-site-header
+  text-site-header()
+
+.text-caption
+  text-caption()
