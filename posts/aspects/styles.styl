@@ -23,6 +23,7 @@ html
   font-size: ($ROOT_FONT_SIZE / $CANONICAL_SCREEN_WIDTH * 100) vw
   font-feature-settings: "liga", "dlig"
   font-kerning: normal
+
   +mobile()
     font-size: ($ROOT_FONT_SIZE / $CANONICAL_SCREEN_WIDTH_M * 100) vw
 
@@ -65,6 +66,7 @@ p
   margin: 0 auto
   max-width: pxToRem(1005)
   text-body()
+  hyphens: auto
   b
     font-weight: normal
     text-highlight()
