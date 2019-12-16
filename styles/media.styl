@@ -1,0 +1,13 @@
+@import './consts.styl'
+
+mobile()
+  @media (max-width: $MOBILE_BP)
+    {block}
+
+desktopOnly()
+  @media (max-width: $MOBILE_BP)
+    display: none
+
+mobileOnly()
+  @media (min-width: $MOBILE_BP)
+    display: none

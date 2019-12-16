@@ -1,3 +1,4 @@
+@import './media.styl';
 @import './utils.styl';
 
 text-quote()
@@ -15,36 +16,54 @@ text-body()
   font-family: Wremena-Light
   font-size: pxToRem(30)
   line-height: (33 / 30)
+  +mobile()
+    font-size: pxToRem(22)
+    line-height: (23 / 22)
 
 text-highlight()
   font-family: IDEOLOGY-RegularBold, sans-serif
   font-size: pxToRem(25)
   line-height: (33 / 25)
+  +mobile()
+    font-size: pxToRem(19)
+    line-height: 1
 
 text-header()
   font-family: IDEOLOGY, sans-serif
   font-size: pxToRem(100)
   line-height: (97 / 100)
+  +mobile()
+    font-size: pxToRem(34)
+    line-height: 1
 
 text-subheader()
   font-family: IDEOLOGY, sans-serif
   font-size: pxToRem(58)
   line-height: (60 / 58)
+  +mobile()
+    font-size: pxToRem(34)
+    line-height: 1
 
 text-site-header()
   font-family: IDEOLOGY, sans-serif
   font-size: pxToRem(24)
   text-transform: uppercase
+  +mobile()
+    font-size: pxToRem(14)
 
 text-section-header()
   font-family: IDEOLOGY-Expanded, sans-serif
   font-size: pxToRem(24)
   line-height: 1
+  +mobile()
+    font-size: pxToRem(16)
 
 text-caption()
   font-family: Wremena-Light
   font-size: pxToRem(20)
   line-height: 1
+  +mobile()
+    font-size: pxToRem(14)
 
 .text-quote
   text-quote()

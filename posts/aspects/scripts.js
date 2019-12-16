@@ -1,4 +1,5 @@
 console.log("hey");
+import detectSwipe from "../../js/detect-swipe.js";
 
 var isEnglishActive = true;
 var hasSwitched = false;
@@ -24,6 +25,12 @@ function main() {
   switchLangButtons.forEach(function(button) {
     button.addEventListener("click", switchLang);
   });
+
+  detectSwipe(
+    document.body,
+    direction => ["left", "right"].indexOf(direction) !== -1 && switchLang(),
+    50
+  );
 }
 
 main();
