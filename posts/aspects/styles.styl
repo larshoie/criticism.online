@@ -71,6 +71,10 @@ p
     font-weight: normal
     text-highlight()
 
+*[lang="en"]
+  p:not(.article-info)
+    text-body-alt()
+
 p + p
   text-indent: pxToRem(50)
 
@@ -310,15 +314,21 @@ img
 .quote-1
   blockquote
     margin: pxToRem(60) 0 pxToRem(120)
+    +mobile()
+      margin: pxToRem(50) 0
 
 .quote-2
   blockquote
     margin: pxToRem(60) 0 pxToRem(70)
+    +mobile()
+      margin: pxToRem(50) 0
 
 .quote-3
 .quote-4
   blockquote
     margin: pxToRem(60) 0
+    +mobile()
+      margin: pxToRem(50) 0
 // << QUOTES
 
 
