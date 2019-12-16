@@ -1,21 +1,21 @@
 @import "../../styles/common.styl"
 
-$canonic-width = 1440
-$offset = 60
-$canonic-width-m = 375
-$offset-m = 35
+$CANONIC_WIDTH = 1440
+$OFFSET = 60
+$CANONIC_WIDTH_M = 375
+$OFFSET_M = 35
 
-$offset-relative = $offset / $canonic-width * 100vw
+$OFFSET_RELATIVE = $OFFSET / $CANONIC_WIDTH * 100vw
 
-$offset-relative-m = $offset-m / $canonic-width-m * 100vw
+$OFFSET_RELATIVE_M = $OFFSET_M / $CANONIC_WIDTH_M * 100vw
 
-$article-width = ($canonic-width - $offset) / $canonic-width * 100vw * 2
-$shift = -($canonic-width - $offset * 2) / $canonic-width * 100vw
+$ARTICLE_WIDTH = ($CANONIC_WIDTH - $OFFSET) / $CANONIC_WIDTH * 100vw * 2
+$SHIFT = -($CANONIC_WIDTH - $OFFSET * 2) / $CANONIC_WIDTH * 100vw
 
-$article-width-m = ($canonic-width-m - $offset-m) / $canonic-width-m * 100vw * 2
-$shift-m = -($canonic-width-m - $offset-m * 2) / $canonic-width-m * 100vw
+$ARTICLE_WIDTH_M = ($CANONIC_WIDTH_M - $OFFSET_M) / $CANONIC_WIDTH_M * 100vw * 2
+$SHIFT_M= -($CANONIC_WIDTH_M - $OFFSET_M * 2) / $CANONIC_WIDTH_M * 100vw
 
-$shift-duration = 0.4s
+$SHIFT-duration = 0.4s
 
 // >> TAG STYLES
 
@@ -99,13 +99,13 @@ img
 // >> OVERLAY
 .overlay
   position: fixed
-  width: $offset-relative
+  width: $OFFSET_RELATIVE
   height: 100%
   top: 0
   cursor: pointer
   z-index: 100
   +mobile()
-    width: $offset-relative-m
+    width: $OFFSET_RELATIVE_M
 .russian .overlay
   left: 0
 .english .overlay
@@ -115,10 +115,10 @@ img
 // >> FOOTER
 .footer
   display: flex
-  width: $article-width
-  transition: transform $shift-duration ease-in-out
+  width: $ARTICLE_WIDTH
+  transition: transform $SHIFT-duration ease-in-out
   +mobile()
-    width: $article-width-m
+    width: $$ARTICLE_WIDTH_M
   &-part
     flex: 1
     line-height: 0
@@ -126,21 +126,10 @@ img
       width: 100%
 
 .russian .footer
-  transform: translateX($shift)
+  transform: translateX($SHIFT)
   +mobile()
-    transform: translateX($shift-m)
+    transform: translateX($SHIFT-m)
 
-// .english
-//   .footer-part-english
-//     filter: invert(0)
-//   .footer-part-russian
-//     filter: invert(100%)
-//
-// .russian
-//   .footer-part-russian
-//     filter: invert(0)
-//   .footer-part-english
-//     filter: invert(100%)
 // << FOOTER
 
 // >> HEADER
@@ -149,11 +138,11 @@ img
   position: fixed
   top: 0
   left: 0
-  width: $article-width
-  transition: transform $shift-duration ease-in-out
+  width: $ARTICLE_WIDTH
+  transition: transform $SHIFT-duration ease-in-out
   z-index: 50
   +mobile()
-    width: $article-width-m
+    width: $ARTICLE_WIDTH_M
   &-part
     flex: 1
     display: flex
@@ -161,7 +150,7 @@ img
     align-items: flex-start
     height: pxToRem(100)
     padding: pxToRem(12) pxToRem(24)
-    transition: background $shift-duration ease-in-out
+    transition: background $SHIFT-duration ease-in-out
     +mobile()
       height: pxToRem(50)
       padding: pxToRem(12)
@@ -175,37 +164,21 @@ img
       background-color: inherit
 
 .russian .header
-  transform: translateX($shift)
+  transform: translateX($SHIFT)
   +mobile()
-    transform: translateX($shift-m)
+    transform: translateX($SHIFT-m)
 
-// :not(.has-switched).english
 .english
   .header-part-english
     background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 50%);
   .header-part-russian
     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 50%);
 
-// :not(.has-switched).russian
 .russian
   .header-part-russian
     background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 50%);
   .header-part-english
     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 50%);
-
-/*
-.has-switched.english
-  .header-part-english
-    animation: $shift-duration forwards reverse bgWhiteToBlack
-  .header-part-russian
-    animation: $shift-duration forwards normal bgWhiteToBlack
-
-.has-switched.russian
-  .header-part-english
-    animation: $shift-duration forwards normal bgWhiteToBlack
-  .header-part-russian
-    animation: $shift-duration forwards reverse bgWhiteToBlack
-*/
 
 // << HEADER
 
@@ -228,18 +201,18 @@ img
   line-height: normal;
 
 .article
-  width: $article-width
+  width: $ARTICLE_WIDTH
   min-height: 300vh
-  transition: transform $shift-duration ease-in-out
+  transition: transform $SHIFT-duration ease-in-out
   +mobile()
-    width: $article-width-m
+    width: $ARTICLE_WIDTH_M
 
   // >> PARTS
   &-part-box
     display: flex
   &-part
     flex: 1
-    transition: background-color $shift-duration ease-in-out, color $shift-duration ease-in-out
+    transition: background-color $SHIFT-duration ease-in-out, color $SHIFT-duration ease-in-out
     padding: 0 pxToRem(42)
     +mobile()
       padding: 0 pxToRem(12)
@@ -263,9 +236,9 @@ img
   // << PARTS
 
 .russian .article
-  transform: translateX($shift)
+  transform: translateX($SHIFT)
   +mobile()
-    transform: translateX($shift-m)
+    transform: translateX($SHIFT-m)
 
 // << ARTICLE
 
@@ -330,110 +303,3 @@ img
     +mobile()
       margin: pxToRem(50) 0
 // << QUOTES
-
-
-/*
-@keyframes bgWhiteToBlack {
-  0% { background: linear-gradient(0deg, transparent 0, rgb(255.00, 255.00, 255.00) 50%) }
-  1% { background: linear-gradient(0deg, transparent 0, rgb(252.45, 252.45, 252.45) 50%) }
-  2% { background: linear-gradient(0deg, transparent 0, rgb(249.90, 249.90, 249.90) 50%) }
-  3% { background: linear-gradient(0deg, transparent 0, rgb(247.35, 247.35, 247.35) 50%) }
-  4% { background: linear-gradient(0deg, transparent 0, rgb(244.80, 244.80, 244.80) 50%) }
-  5% { background: linear-gradient(0deg, transparent 0, rgb(242.25, 242.25, 242.25) 50%) }
-  6% { background: linear-gradient(0deg, transparent 0, rgb(239.70, 239.70, 239.70) 50%) }
-  7% { background: linear-gradient(0deg, transparent 0, rgb(237.15, 237.15, 237.15) 50%) }
-  8% { background: linear-gradient(0deg, transparent 0, rgb(234.60, 234.60, 234.60) 50%) }
-  9% { background: linear-gradient(0deg, transparent 0, rgb(232.05, 232.05, 232.05) 50%) }
-  10% { background: linear-gradient(0deg, transparent 0, rgb(229.50, 229.50, 229.50) 50%) }
-  11% { background: linear-gradient(0deg, transparent 0, rgb(226.95, 226.95, 226.95) 50%) }
-  12% { background: linear-gradient(0deg, transparent 0, rgb(224.40, 224.40, 224.40) 50%) }
-  13% { background: linear-gradient(0deg, transparent 0, rgb(221.85, 221.85, 221.85) 50%) }
-  14% { background: linear-gradient(0deg, transparent 0, rgb(219.30, 219.30, 219.30) 50%) }
-  15% { background: linear-gradient(0deg, transparent 0, rgb(216.75, 216.75, 216.75) 50%) }
-  16% { background: linear-gradient(0deg, transparent 0, rgb(214.20, 214.20, 214.20) 50%) }
-  17% { background: linear-gradient(0deg, transparent 0, rgb(211.65, 211.65, 211.65) 50%) }
-  18% { background: linear-gradient(0deg, transparent 0, rgb(209.10, 209.10, 209.10) 50%) }
-  19% { background: linear-gradient(0deg, transparent 0, rgb(206.55, 206.55, 206.55) 50%) }
-  20% { background: linear-gradient(0deg, transparent 0, rgb(204.00, 204.00, 204.00) 50%) }
-  21% { background: linear-gradient(0deg, transparent 0, rgb(201.45, 201.45, 201.45) 50%) }
-  22% { background: linear-gradient(0deg, transparent 0, rgb(198.90, 198.90, 198.90) 50%) }
-  23% { background: linear-gradient(0deg, transparent 0, rgb(196.35, 196.35, 196.35) 50%) }
-  24% { background: linear-gradient(0deg, transparent 0, rgb(193.80, 193.80, 193.80) 50%) }
-  25% { background: linear-gradient(0deg, transparent 0, rgb(191.25, 191.25, 191.25) 50%) }
-  26% { background: linear-gradient(0deg, transparent 0, rgb(188.70, 188.70, 188.70) 50%) }
-  27% { background: linear-gradient(0deg, transparent 0, rgb(186.15, 186.15, 186.15) 50%) }
-  28% { background: linear-gradient(0deg, transparent 0, rgb(183.60, 183.60, 183.60) 50%) }
-  29% { background: linear-gradient(0deg, transparent 0, rgb(181.05, 181.05, 181.05) 50%) }
-  30% { background: linear-gradient(0deg, transparent 0, rgb(178.50, 178.50, 178.50) 50%) }
-  31% { background: linear-gradient(0deg, transparent 0, rgb(175.95, 175.95, 175.95) 50%) }
-  32% { background: linear-gradient(0deg, transparent 0, rgb(173.40, 173.40, 173.40) 50%) }
-  33% { background: linear-gradient(0deg, transparent 0, rgb(170.85, 170.85, 170.85) 50%) }
-  34% { background: linear-gradient(0deg, transparent 0, rgb(168.30, 168.30, 168.30) 50%) }
-  35% { background: linear-gradient(0deg, transparent 0, rgb(165.75, 165.75, 165.75) 50%) }
-  36% { background: linear-gradient(0deg, transparent 0, rgb(163.20, 163.20, 163.20) 50%) }
-  37% { background: linear-gradient(0deg, transparent 0, rgb(160.65, 160.65, 160.65) 50%) }
-  38% { background: linear-gradient(0deg, transparent 0, rgb(158.10, 158.10, 158.10) 50%) }
-  39% { background: linear-gradient(0deg, transparent 0, rgb(155.55, 155.55, 155.55) 50%) }
-  40% { background: linear-gradient(0deg, transparent 0, rgb(153.00, 153.00, 153.00) 50%) }
-  41% { background: linear-gradient(0deg, transparent 0, rgb(150.45, 150.45, 150.45) 50%) }
-  42% { background: linear-gradient(0deg, transparent 0, rgb(147.90, 147.90, 147.90) 50%) }
-  43% { background: linear-gradient(0deg, transparent 0, rgb(145.35, 145.35, 145.35) 50%) }
-  44% { background: linear-gradient(0deg, transparent 0, rgb(142.80, 142.80, 142.80) 50%) }
-  45% { background: linear-gradient(0deg, transparent 0, rgb(140.25, 140.25, 140.25) 50%) }
-  46% { background: linear-gradient(0deg, transparent 0, rgb(137.70, 137.70, 137.70) 50%) }
-  47% { background: linear-gradient(0deg, transparent 0, rgb(135.15, 135.15, 135.15) 50%) }
-  48% { background: linear-gradient(0deg, transparent 0, rgb(132.60, 132.60, 132.60) 50%) }
-  49% { background: linear-gradient(0deg, transparent 0, rgb(130.05, 130.05, 130.05) 50%) }
-  50% { background: linear-gradient(0deg, transparent 0, rgb(127.50, 127.50, 127.50) 50%) }
-  51% { background: linear-gradient(0deg, transparent 0, rgb(124.95, 124.95, 124.95) 50%) }
-  52% { background: linear-gradient(0deg, transparent 0, rgb(122.40, 122.40, 122.40) 50%) }
-  53% { background: linear-gradient(0deg, transparent 0, rgb(119.85, 119.85, 119.85) 50%) }
-  54% { background: linear-gradient(0deg, transparent 0, rgb(117.30, 117.30, 117.30) 50%) }
-  55% { background: linear-gradient(0deg, transparent 0, rgb(114.75, 114.75, 114.75) 50%) }
-  56% { background: linear-gradient(0deg, transparent 0, rgb(112.20, 112.20, 112.20) 50%) }
-  57% { background: linear-gradient(0deg, transparent 0, rgb(109.65, 109.65, 109.65) 50%) }
-  58% { background: linear-gradient(0deg, transparent 0, rgb(107.10, 107.10, 107.10) 50%) }
-  59% { background: linear-gradient(0deg, transparent 0, rgb(104.55, 104.55, 104.55) 50%) }
-  60% { background: linear-gradient(0deg, transparent 0, rgb(102.00, 102.00, 102.00) 50%) }
-  61% { background: linear-gradient(0deg, transparent 0, rgb(99.45, 99.45, 99.45) 50%) }
-  62% { background: linear-gradient(0deg, transparent 0, rgb(96.90, 96.90, 96.90) 50%) }
-  63% { background: linear-gradient(0deg, transparent 0, rgb(94.35, 94.35, 94.35) 50%) }
-  64% { background: linear-gradient(0deg, transparent 0, rgb(91.80, 91.80, 91.80) 50%) }
-  65% { background: linear-gradient(0deg, transparent 0, rgb(89.25, 89.25, 89.25) 50%) }
-  66% { background: linear-gradient(0deg, transparent 0, rgb(86.70, 86.70, 86.70) 50%) }
-  67% { background: linear-gradient(0deg, transparent 0, rgb(84.15, 84.15, 84.15) 50%) }
-  68% { background: linear-gradient(0deg, transparent 0, rgb(81.60, 81.60, 81.60) 50%) }
-  69% { background: linear-gradient(0deg, transparent 0, rgb(79.05, 79.05, 79.05) 50%) }
-  70% { background: linear-gradient(0deg, transparent 0, rgb(76.50, 76.50, 76.50) 50%) }
-  71% { background: linear-gradient(0deg, transparent 0, rgb(73.95, 73.95, 73.95) 50%) }
-  72% { background: linear-gradient(0deg, transparent 0, rgb(71.40, 71.40, 71.40) 50%) }
-  73% { background: linear-gradient(0deg, transparent 0, rgb(68.85, 68.85, 68.85) 50%) }
-  74% { background: linear-gradient(0deg, transparent 0, rgb(66.30, 66.30, 66.30) 50%) }
-  75% { background: linear-gradient(0deg, transparent 0, rgb(63.75, 63.75, 63.75) 50%) }
-  76% { background: linear-gradient(0deg, transparent 0, rgb(61.20, 61.20, 61.20) 50%) }
-  77% { background: linear-gradient(0deg, transparent 0, rgb(58.65, 58.65, 58.65) 50%) }
-  78% { background: linear-gradient(0deg, transparent 0, rgb(56.10, 56.10, 56.10) 50%) }
-  79% { background: linear-gradient(0deg, transparent 0, rgb(53.55, 53.55, 53.55) 50%) }
-  80% { background: linear-gradient(0deg, transparent 0, rgb(51.00, 51.00, 51.00) 50%) }
-  81% { background: linear-gradient(0deg, transparent 0, rgb(48.45, 48.45, 48.45) 50%) }
-  82% { background: linear-gradient(0deg, transparent 0, rgb(45.90, 45.90, 45.90) 50%) }
-  83% { background: linear-gradient(0deg, transparent 0, rgb(43.35, 43.35, 43.35) 50%) }
-  84% { background: linear-gradient(0deg, transparent 0, rgb(40.80, 40.80, 40.80) 50%) }
-  85% { background: linear-gradient(0deg, transparent 0, rgb(38.25, 38.25, 38.25) 50%) }
-  86% { background: linear-gradient(0deg, transparent 0, rgb(35.70, 35.70, 35.70) 50%) }
-  87% { background: linear-gradient(0deg, transparent 0, rgb(33.15, 33.15, 33.15) 50%) }
-  88% { background: linear-gradient(0deg, transparent 0, rgb(30.60, 30.60, 30.60) 50%) }
-  89% { background: linear-gradient(0deg, transparent 0, rgb(28.05, 28.05, 28.05) 50%) }
-  90% { background: linear-gradient(0deg, transparent 0, rgb(25.50, 25.50, 25.50) 50%) }
-  91% { background: linear-gradient(0deg, transparent 0, rgb(22.95, 22.95, 22.95) 50%) }
-  92% { background: linear-gradient(0deg, transparent 0, rgb(20.40, 20.40, 20.40) 50%) }
-  93% { background: linear-gradient(0deg, transparent 0, rgb(17.85, 17.85, 17.85) 50%) }
-  94% { background: linear-gradient(0deg, transparent 0, rgb(15.30, 15.30, 15.30) 50%) }
-  95% { background: linear-gradient(0deg, transparent 0, rgb(12.75, 12.75, 12.75) 50%) }
-  96% { background: linear-gradient(0deg, transparent 0, rgb(10.20, 10.20, 10.20) 50%) }
-  97% { background: linear-gradient(0deg, transparent 0, rgb(7.65, 7.65, 7.65) 50%) }
-  98% { background: linear-gradient(0deg, transparent 0, rgb(5.10, 5.10, 5.10) 50%) }
-  99% { background: linear-gradient(0deg, transparent 0, rgb(2.55, 2.55, 2.55) 50%) }
-  100% { background: linear-gradient(0deg, transparent 0, rgb(0.00, 0.00, 0.00) 50%) }
-}
-*/
