@@ -1,10 +1,21 @@
 @import './media.styl';
 @import './utils.styl';
 
+text-feed-body()
+  font-family: Wremena-Light
+  font-size: pxToRem(30)
+  line-height: (33 / 30)
+  +mobile()
+    font-size: pxToRem(14)
+    line-height: (18 / 14)
+
 text-quote()
   font-family: IDEOLOGY, sans-serif
   font-size: pxToRem(48)
   line-height: (52 / 48)
+  +mobile()
+    font-size: pxToRem(18)
+    line-height: 1
 
 text-big()
   font-family: IDEOLOGY, sans-serif
@@ -99,3 +110,6 @@ text-caption()
 
 .text-caption
   text-caption()
+
+.text-feed-body
+  text-feed-body()

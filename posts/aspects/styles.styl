@@ -15,7 +15,7 @@ $SHIFT = -($CANONIC_WIDTH - $OFFSET * 2) / $CANONIC_WIDTH * 100vw
 $ARTICLE_WIDTH_M = ($CANONIC_WIDTH_M - $OFFSET_M) / $CANONIC_WIDTH_M * 100vw * 2
 $SHIFT_M= -($CANONIC_WIDTH_M - $OFFSET_M * 2) / $CANONIC_WIDTH_M * 100vw
 
-$SHIFT-duration = 0.4s
+$SHIFT_DURATION = 0.4s
 
 // >> TAG STYLES
 
@@ -116,9 +116,9 @@ img
 .footer
   display: flex
   width: $ARTICLE_WIDTH
-  transition: transform $SHIFT-duration ease-in-out
+  transition: transform $SHIFT_DURATION ease-in-out
   +mobile()
-    width: $$ARTICLE_WIDTH_M
+    width: $ARTICLE_WIDTH_M
   &-part
     flex: 1
     line-height: 0
@@ -128,7 +128,7 @@ img
 .russian .footer
   transform: translateX($SHIFT)
   +mobile()
-    transform: translateX($SHIFT-m)
+    transform: translateX($SHIFT_M)
 
 // << FOOTER
 
@@ -139,7 +139,7 @@ img
   top: 0
   left: 0
   width: $ARTICLE_WIDTH
-  transition: transform $SHIFT-duration ease-in-out
+  transition: transform $SHIFT_DURATION ease-in-out
   z-index: 50
   +mobile()
     width: $ARTICLE_WIDTH_M
@@ -150,7 +150,7 @@ img
     align-items: flex-start
     height: pxToRem(100)
     padding: pxToRem(12) pxToRem(24)
-    transition: background $SHIFT-duration ease-in-out
+    transition: background $SHIFT_DURATION ease-in-out
     +mobile()
       height: pxToRem(50)
       padding: pxToRem(12)
@@ -166,7 +166,7 @@ img
 .russian .header
   transform: translateX($SHIFT)
   +mobile()
-    transform: translateX($SHIFT-m)
+    transform: translateX($SHIFT_M)
 
 .english
   .header-part-english
@@ -203,7 +203,7 @@ img
 .article
   width: $ARTICLE_WIDTH
   min-height: 300vh
-  transition: transform $SHIFT-duration ease-in-out
+  transition: transform $SHIFT_DURATION ease-in-out
   +mobile()
     width: $ARTICLE_WIDTH_M
 
@@ -212,7 +212,7 @@ img
     display: flex
   &-part
     flex: 1
-    transition: background-color $SHIFT-duration ease-in-out, color $SHIFT-duration ease-in-out
+    transition: background-color $SHIFT_DURATION ease-in-out, color $SHIFT_DURATION ease-in-out
     padding: 0 pxToRem(42)
     +mobile()
       padding: 0 pxToRem(12)
@@ -238,7 +238,7 @@ img
 .russian .article
   transform: translateX($SHIFT)
   +mobile()
-    transform: translateX($SHIFT-m)
+    transform: translateX($SHIFT_M)
 
 // << ARTICLE
 

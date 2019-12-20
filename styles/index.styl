@@ -1,5 +1,17 @@
 @import './common.styl'
 
+$CANONIC_WIDTH = 1440
+$OFFSET = 312
+$CANONIC_WIDTH_M = 375
+$OFFSET_M = 70
+
+$ARTICLE_WIDTH = ($CANONIC_WIDTH - $OFFSET) / $CANONIC_WIDTH * 100vw * 2
+$ARTICLE_HALF_WIDTH = ($CANONIC_WIDTH - $OFFSET) / $CANONIC_WIDTH * 100vw
+$ARTICLE_WIDTH_M = ($CANONIC_WIDTH_M - $OFFSET_M) / $CANONIC_WIDTH_M * 100vw * 2
+$ARTICLE_HALF_WIDTH_M = ($CANONIC_WIDTH_M - $OFFSET_M) / $CANONIC_WIDTH_M * 100vw
+$SHIFT = -($CANONIC_WIDTH - $OFFSET * 2) / $CANONIC_WIDTH * 100vw
+$SHIFT_M= -($CANONIC_WIDTH_M - $OFFSET_M * 2) / $CANONIC_WIDTH_M * 100vw
+
 .english,
 .panel-left,
 .panel-right {
@@ -33,14 +45,18 @@ a {
   text-transform: uppercase;
 }
 
+html
+  font-size: ($ROOT_FONT_SIZE / $CANONICAL_SCREEN_WIDTH * 100) vw
+  line-height: 1.3;
+  font-feature-settings: "liga", "dlig"
+  font-kerning: normal
+  font-family: Wremena-Light;
+
+  +mobile()
+    font-size: ($ROOT_FONT_SIZE / $CANONICAL_SCREEN_WIDTH_M * 100) vw
 
 body,
 html {
-  font-size: 1.7vw;
-  line-height: 1.3;
-  font-family: Wremena-Light;
-  font-feature-settings: "liga", "dlig";
-  font-kerning: normal;
   overflow-x: hidden;
 }
 
@@ -49,19 +65,29 @@ html {
 }
 
 h1 {
-  font-size: 4vw;
-  padding-bottom: 1.3rem;
   text-align: center;
   font-family: IDEOLOGY, sans-serif;
-  line-height: 1;
+  text-subheader();
 }
+
+h2
+  text-subheader()
+  text-align: center
+  text-stroke: 1px #000
+  text-fill-color: transparent
+  -webkit-text-stroke: 1px #000
+  -webkit-text-fill-color: transparent
+  +mobile()
+    margin-top: pxToRem(5)
+    font-size: pxToRem(24)
 
 .nav,
 sup {
   font-family: IDEOLOGY;
 }
 
-.date {
+.date
+{
   text-stroke: 1px #000;
   text-fill-color: transparent;
   -webkit-text-stroke: 1px #000;
@@ -72,11 +98,13 @@ sup {
 }
 
 .nav-container,
-.panel-container {
+.panel-container
   display: flex;
-  width: 160vw;
+  width: $ARTICLE_WIDTH;
   height: 100%;
-}
+  z-index: 10000
+  +mobile()
+    width: $ARTICLE_WIDTH_M;
 
 .page-container {
   position: relative;
@@ -100,22 +128,30 @@ sup {
   display: flex;
 }
 
-article.panel-container:first-of-type .panel {
-  padding-top: 10vw;
-}
+article.panel-container:first-of-type .panel
+  padding-top: pxToRem(35);
+  +mobile()
+    padding-top: pxToRem(75);
 
-.panel {
-  width: 74vw;
-  padding: 1.5vw 3vw 10vw;
-}
+.panel
+  width: $ARTICLE_HALF_WIDTH;
+  padding: pxToRem(30) pxToRem(60) pxToRem(150);
+  +mobile()
+    padding: pxToRem(30) pxToRem(12) pxToRem(60);
+    width: $ARTICLE_HALF_WIDTH_M;
 
+.quote-section + .panel-container
+  .panel
+    padding-top: pxToRem(150)
+    +mobile()
+      padding-top: pxToRem(60)
+
+.panel-container + .panel-container
+  .panel
+    padding-top: pxToRem(0)
 
 footer .panel {
   padding: 1.5vw 3vw;
-}
-
-.inner {
-  padding: 1vw;
 }
 
 .inner p:first-of-type {
@@ -123,21 +159,20 @@ footer .panel {
 }
 
 .inner p {
-  text-indent: 2em;
-}
-
-.quote {
-  text-indent: -0.4em !important;
+  text-indent: pxToRem(50);
+  text-feed-body();
+  hyphens: auto;
 }
 
 .text {
   line-height: 1.15;
 }
 
-figure {
-  padding: 10px 0;
-  width: 100%;
-}
+figure
+  padding: pxToRem(30) 0
+  width: 100%
+  +mobile()
+    padding: pxToRem(8) 0
 
 figure img,
 figure video {
@@ -187,7 +222,8 @@ figure video {
   transition: left 0.3s, background 0.3s, color 0.3s;
 }
 
-.not-active img {
+.not-active img,
+.not-active video {
   filter: invert(100%) grayscale(100%);
 }
 
@@ -195,9 +231,10 @@ figure video {
   left: 0 !important;
 }
 
-.russian-active {
-  left: -60vw !important;
-}
+.russian-active
+  left: $SHIFT !important;
+  +mobile()
+    left: $SHIFT_M !important;
 
 a,
 a:hover {
@@ -214,15 +251,17 @@ sup {
   margin: 0 0.3em;
 }
 
-.nav {
+.nav
   height: auto;
-  width: 160vw;
+  width: $ARTICLE_WIDTH;
   display: flex;
   align-items: center;
   align-content: space-between;
   justify-content: space-between;
   padding: 0;
-}
+  text-site-header();
+  +mobile()
+    width: $ARTICLE_WIDTH_M
 
 .english-nav,
 .russian-nav {
@@ -230,6 +269,9 @@ sup {
   padding: 1vw 4vw;
   align-content: space-between;
   height: 100%;
+  +mobile() {
+    padding: pxToRem(14);
+  }
 }
 
 a {
@@ -261,78 +303,85 @@ a:hover {
 .russian-nav.not-active {
   background: 0 0;
   padding-bottom: 5vw;
+  +mobile() {
+    padding-bottom: pxToRem(12);
+  }
 }
 
-.english-nav:after {
+.english-nav:after
   position: absolute;
   content: "";
   top: 0;
   left: 0;
-  width: 80vw;
+  width: $ARTICLE_HALF_WIDTH;
   height: 100%;
   background: linear-gradient(0deg, transparent 0, #000 50%);
   transition: opacity 0.3s, color 0.3s;
   opacity: 0;
-}
+  +mobile()
+    width: $ARTICLE_HALF_WIDTH_M;
 
 .english-nav:before,
-.russian-nav:after {
+.russian-nav:after
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0, #fff 50%);
   position: absolute;
   content: "";
   top: 0;
-  width: 80vw;
+  width: $ARTICLE_HALF_WIDTH;
   height: 100%;
   transition: opacity 0.3s, color 0.3s;
-}
+  +mobile()
+    height: 150%;
+    width: $ARTICLE_HALF_WIDTH_M;
 
-.english-nav.not-active:after {
+.english-nav.not-active:after
   opacity: 1;
   transition: opacity 0.3s, color 0.3s;
-}
 
-.russian-nav:after {
-  left: 80vw;
+.russian-nav:after
+  left: $ARTICLE_HALF_WIDTH;
   opacity: 0;
-}
+  +mobile()
+    left: $ARTICLE_HALF_WIDTH_M;
 
-.russian-nav.active:after {
+.russian-nav.active:after
   opacity: 1;
   transition: opacity 0.3s, color 0.3s;
-}
 
-.english-nav:before {
+
+.english-nav:before
   left: 0;
   opacity: 0;
-}
 
-.english-nav.active:before {
+.english-nav.active:before
   opacity: 1;
   transition: opacity 0.3s, color 0.3s;
-}
 
-.russian-nav:before {
+.russian-nav:before
   position: absolute;
   content: "";
   top: 0;
-  left: 80vw;
-  width: 80vw;
+  left: $ARTICLE_HALF_WIDTH;
+  width: $ARTICLE_HALF_WIDTH;
   height: 100%;
   background: linear-gradient(0deg, transparent 0, #000 50%);
   transition: opacity 0.3s, color 0.3s;
   opacity: 0;
-}
+  +mobile()
+    height: 150%;
+    left: $ARTICLE_HALF_WIDTH_M;
+    width: $ARTICLE_HALF_WIDTH_M;
 
 .bubble-wrap,
-canvas {
-  width: 80vw;
+canvas
+  width: $ARTICLE_HALF_WIDTH;
   height: 100vh;
-}
+  +mobile()
+    width: $ARTICLE_HALF_WIDTH_M;
 
-.russian-nav.not-active:before {
+.russian-nav.not-active:before
   opacity: 1;
   transition: opacity 0.3s, color 0.3s;
-}
 
 .english-nav.active a,
 .english-nav.not-active a,
@@ -421,57 +470,62 @@ img {
   h1 {
     font-size: 7vw;
   }
-  .nav {
-    font-size: 4vw;
-    text-transform: uppercase;
-  }
   .en,
   .ru {
     margin-left: 0;
   }
 }
 
++mobile() {
+  h1 {
+    font-size: pxToRem(24)
+    line-height: 1
+  }
+}
+
 .quote-section
-  width: 160vw
+  width: $ARTICLE_WIDTH
   display: flex
+  +mobile()
+    width: $ARTICLE_WIDTH_M
   &-item
+    flex: 1
     padding: pxToRem(30) pxToRem(70) pxToRem(65) pxToRem(60)
     color: #fff
-    background-color: #000
     position: relative
+    +mobile()
+      padding: pxToRem(12) pxToRem(8) pxToRem(12) pxToRem(16)
     p
       position: relative
     a
       color: inherit
-    a:hover
       border-color: inherit
       border-width: pxToRem(2)
+      +mobile()
+        border-width: pxToRem(1)
     &-cover
       position: absolute
       left: 0
       top: 0
       width: 100%
       height: 100%
-      background-image: url("../assets/images/quote-bg-example.jpg")
+      background-image: url("../assets/images/quote-1-d.jpg")
+      filter: blur(pxToRem(14))
       background-size: cover
       background-position: bottom
       background-repeat: no-repeat
+      +mobile()
+        background-image: url("../assets/images/quote-1-m.jpg")
 
 .english-active
   .quote-section-item--russian
-    background-color: #fff
-    p
-      mix-blend-mode: difference
-  .quote-section-item--russian .quote-section-item-cover
-    mix-blend-mode: exclusion
+    filter: invert(100%) grayscale(100%)
+    background-color: white
 
 .russian-active
   .quote-section-item--english
-    background-color: #fff
-    p
-      mix-blend-mode: difference
-  .quote-section-item--english .quote-section-item-cover
-    mix-blend-mode: exclusion
+    filter: invert(100%) grayscale(100%)
+    background-color: white
 
 .quote-example .quote-section-item::before
   background-image: url("../assets/images/quote-bg-example.jpg")
@@ -480,14 +534,22 @@ img {
   max-width: pxToRem(750)
   margin: 0 auto
 
-.article-read-full
-  display: block
-  width: 100%
-  border: pxToRem(2) solid !important
-  text-align: center
-  padding: pxToRem(13) 0 pxToRem(14)
+.article-read-full-box
   margin-top: pxToRem(30)
+  display: flex
+  justify-content: center
+  +mobile()
+    margin-top: pxToRem(12)
+
+.article-read-full
+  display: inline-block
+  border: pxToRem(1) solid !important
+  text-align: center
+  padding: pxToRem(13) pxToRem(12) pxToRem(11)
+  line-height: 1
   color: black;
+  +mobile()
+    padding: pxToRem(10) pxToRem(12) pxToRem(9)
 
 .english-active
   .article-read-full--russian
@@ -496,3 +558,13 @@ img {
 .russian-active
   .article-read-full--english
     background: white;
+
+.authors
+  text-align: center
+  span
+    margin-top: pxToRem(5)
+    display: block
+  p
+    text-align: left
+    margin-top: pxToRem(20)
+    hyphens: manual
