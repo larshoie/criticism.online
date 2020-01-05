@@ -28,10 +28,8 @@ a {
   text-decoration: none;
 }
 
-.english-nav,
-.panel-container a,
-a {
-  border-bottom: 1px solid;
+.panel-container a {
+  text-decoration: underline
 }
 
 .lang,
@@ -266,7 +264,7 @@ sup {
 .english-nav,
 .russian-nav {
   width: 100vw;
-  padding: 1vw 4vw;
+  padding: 1vw pxToRem(60);
   align-content: space-between;
   height: 100%;
   +mobile() {
@@ -414,9 +412,9 @@ canvas
   transition: opacity 0.3s, background 0.3s, color 0.3s;
 }
 
-img {
+img, video {
   position: relative;
-  z-index: 9001 !important;
+  z-index: 10001 !important;
 }
 
 @keyframes fadeIn {
@@ -500,9 +498,7 @@ img {
     a
       color: inherit
       border-color: inherit
-      border-width: pxToRem(2)
-      +mobile()
-        border-width: pxToRem(1)
+      text-decoration: underline
     &-cover
       position: absolute
       left: 0
@@ -548,6 +544,7 @@ img {
   padding: pxToRem(13) pxToRem(12) pxToRem(11)
   line-height: 1
   color: black;
+  text-decoration: none !important
   +mobile()
     padding: pxToRem(10) pxToRem(12) pxToRem(9)
 
