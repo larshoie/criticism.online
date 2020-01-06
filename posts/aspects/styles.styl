@@ -102,14 +102,16 @@ img
   width: $OFFSET_RELATIVE
   height: 100%
   top: 0
-  cursor: pointer
+  // cursor: pointer
   z-index: 100
   +mobile()
     width: $OFFSET_RELATIVE_M
 .russian .overlay
   left: 0
+  cursor: url("~/assets/images/eng.png"), pointer
 .english .overlay
   right: 0
+  cursor: url("~/assets/images/rus.png"), pointer
 // << OVERLAY
 
 // >> FOOTER
