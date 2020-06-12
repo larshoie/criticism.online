@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-.panel-container a {
+.panel-container .text span {
   text-decoration: underline
 }
 
@@ -200,6 +200,10 @@ figure video {
 .not-active a {
   transition: background 0.3s, color 0.3s;
   background: #000;
+}
+
+.panel.not-active .inner {
+  pointer-events: none;
 }
 
 .active img,
@@ -495,33 +499,40 @@ img, video, .quote-section {
       padding: pxToRem(12) pxToRem(8) pxToRem(12) pxToRem(16)
     p
       position: relative
-    a
+    span
       color: inherit
       border-color: inherit
       text-decoration: underline
     &-cover
+    &-cover-2
       position: absolute
       left: 0
       top: 0
       width: 100%
       height: 100%
-      background-image: url("../assets/images/quote-1-d.jpg")
-      filter: blur(pxToRem(14))
+      filter: blur(pxToRem(40))
       background-size: cover
       background-position: bottom
       background-repeat: no-repeat
+    &-cover
+      background-image: url("../assets/images/quote-1-d.jpg")
       +mobile()
         background-image: url("../assets/images/quote-1-m.jpg")
-
+    &-cover-2
+      background-image: url("../assets/images/decolonize-rect.jpg")
 .english-active
   .quote-section-item--russian
     filter: invert(100%) grayscale(100%)
     background-color: white
+    a
+      pointer-events: none
 
 .russian-active
   .quote-section-item--english
     filter: invert(100%) grayscale(100%)
     background-color: white
+    a
+      pointer-events: none
 
 .quote-example .quote-section-item::before
   background-image: url("../assets/images/quote-bg-example.jpg")
@@ -565,3 +576,6 @@ img, video, .quote-section {
     text-align: left
     margin-top: pxToRem(20)
     hyphens: manual
+
+.block
+  display: block
